@@ -1,7 +1,5 @@
 import { createStyles } from '@material-ui/core/styles'
 
-const baseButtonProps = {}
-
 const firstButtonProps = {
   borderTopRightRadius: 0,
   borderBottomRightRadius: 0,
@@ -29,8 +27,6 @@ export default () =>
 
       // default case
       '& [data-component-type="button"]': {
-        ...baseButtonProps,
-
         // first item
         '&:first-child:not(:last-child)': firstButtonProps,
         // middle item
@@ -41,19 +37,16 @@ export default () =>
 
       // nested case when button is nested in first item in ButtonGroup
       '& :first-child:not(:last-child) [data-component-type="button"]': {
-        ...baseButtonProps,
         ...firstButtonProps
       },
 
       // nested case when button is nested in middle item in ButtonGroup
       '& :not(:first-child):not(:last-child) [data-component-type="button"]': {
-        ...baseButtonProps,
         ...middleButtonProps
       },
 
       // nested case when button is nested in last item in ButtonGroup
       '& :last-child:not(:first-child) [data-component-type="button"]': {
-        ...baseButtonProps,
         ...lastButtonProps
       }
     }
